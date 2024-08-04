@@ -41,17 +41,22 @@ public class AiBackendApplication implements CommandLineRunner {
 
         );
         profileRepository.save(profile);
+         profile = new Profile(
+                "2",
+                "Ajay",
+                "Madkaiker",
+                40,
+                "Indian",
+                Gender.MALE,
+                "Software Developer",
+                "foo.jpg",
+                "INFP"
+
+        );
+         profileRepository.save(profile);
         profileRepository.findAll().forEach(System.out::println);
 
-        Conversation conversation = new Conversation(
-                "1",
-                profile.id(),
-                List.of(
-                        new ChatMessage("Hello", profile.id(),LocalDateTime.now())
-                ));
 
-        conversationRepository.save(conversation);
-        conversationRepository.findAll().forEach(System.out::println);
     }
 
 }
